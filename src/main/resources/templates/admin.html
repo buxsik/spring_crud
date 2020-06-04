@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>AdminPage</title>
+</head>
+<body>
+<th:block th:include="/_menu.html"></th:block>
+<h3>Login</h3>
+<table width="70%" cellpadding="10" border="1">
+    <tr>
+        <td>Id</td>
+        <td>User</td>
+        <td>Password</td>
+        <td>UserRole</td>
+        <td>Edit</td>
+        <td>Delete</td>
+    </tr>
+
+        <tr th:each="user:${allUsers}">
+            <td th:text="${user.id}">Id</td>
+            <td th:text="${user.username}">User</td>
+            <td th:text="${user.password}">Password</td>
+            <td>
+                <p th:each="role : ${user.role}">
+                    <span th:text="${role}">UserRole</span>
+                </p>
+            </td>
+            <td><a th:href="@{'admin/update/' + ${user.id}}">Edit</a></td>
+            <td><a th:href="@{'admin/delete/' + ${user.id}}">Delete</a></td>
+        </tr>
+</table>
+<h3>here you can <a th:href="@{admin/add}">add</a> a new user</h3>
+</body>
+</html>

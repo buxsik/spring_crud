@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>LoginPage</title>
+</head>
+<body>
+    <th:block th:include="/_menu.html"></th:block>
+    <h3>Login</h3>
+    <form action="/login" method="post">
+        <table>
+            <tr>
+                <td>User</td>
+                <td><input type="text" name="j_username" value=""></td>
+            </tr>
+            <tr>
+                <td>Password</td>
+                <td><input type="text" name="j_password" value=""></td>
+            </tr>
+            <tr>
+                <td><input name="submit" type="submit" value="submit"></td>
+            </tr>
+        </table>
+    </form>
+
+</body>
+</html>

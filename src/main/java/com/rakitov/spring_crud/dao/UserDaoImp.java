@@ -50,4 +50,10 @@ public class UserDaoImp {
                 .setParameter("thisUsername", userName)
                 .getSingleResult();
     }
+
+    public User findUserByUserEmail(String email) {
+        return entityManager.createQuery("select user from User user where user.email=:thisEmail", User.class)
+                .setParameter("thisEmail", email)
+                .getSingleResult();
+    }
 }

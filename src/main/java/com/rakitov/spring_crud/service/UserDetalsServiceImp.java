@@ -18,7 +18,7 @@ public class UserDetalsServiceImp implements UserDetailsService {
     @Transactional
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
-        User user = userDao.findUserByUserName(s);
+        User user = userDao.findUserByUserEmail(s);
         if (user == null) {
             throw new UsernameNotFoundException("User not found");
         }

@@ -8,12 +8,15 @@
 <th:block th:include="/_menu.html"></th:block>
 <form action="#" th:action="@{/admin/add}" th:object="${user}" method="post">
 
-        <label for="username" >UserName</label>
-        <input type="text" id="username" name="username" th:field="*{username}"/>
+    <label th:for="username">Username</label>
+    <input type="text"  th:name="username" th:id="username"/>
+
+    <label th:for="email">Email</label>
+    <input type="text"  th:name="email" th:id="email"/>
 
 
-        <label for="password" >Password</label>
-        <input type="text" id="password" name="password" th:field="*{password}"/>
+    <label>Password</label>
+    <input type="text"  th:name="password" th:id="password"/>
 
     <select name="role" multiple>
         <option th:each="role : ${roles}"

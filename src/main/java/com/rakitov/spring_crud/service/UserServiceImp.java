@@ -65,4 +65,6 @@ public class UserServiceImp implements UserService {
     public void removeUser(Long id) {
         userDao.removeUser(id);
     }
+
+    public User findUserByUsername(String usermame) { return userDao.findUserByUserName(usermame); }
 }

@@ -1,6 +1,7 @@
 package com.rakitov.spring_crud.model;
 
 
+import lombok.AllArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -10,15 +11,30 @@ import java.util.Set;
 
 @Entity
 @Table(name = "users")
+@AllArgsConstructor
 public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
 
-    @Column(name = "userName")
+    @Column(name = "username")
     private String username;
 
+    @Column(name = "email")
+    private String email;
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
     @Column(name = "password")
     private String password;
@@ -31,14 +47,9 @@ public class User implements UserDetails {
 
     public User() {}
 
-    public User(String userName, String password) {
-        this.username = userName;
-        this.password = password;
-    }
-
-    public User(Long id, String userName, String password) {
-        this.id = id;
-        this.username = userName;
+    public User(String username, String email, String password) {
+        this.username = username;
+        this.email = email;
         this.password = password;
     }
 

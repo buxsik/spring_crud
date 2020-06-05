@@ -10,7 +10,8 @@
 <table width="70%" cellpadding="10" border="1">
     <tr>
         <td>Id</td>
-        <td>User</td>
+        <td>Username</td>
+        <td>Email</td>
         <td>Password</td>
         <td>UserRole</td>
         <td>Edit</td>
@@ -19,7 +20,8 @@
 
         <tr th:each="user:${allUsers}">
             <td th:text="${user.id}">Id</td>
-            <td th:text="${user.username}">User</td>
+            <td th:text="${user.username}">Username</td>
+            <td th:text="${user.email}">Email</td>
             <td th:text="${user.password}">Password</td>
             <td>
                 <p th:each="role : ${user.role}">
